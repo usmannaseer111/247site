@@ -211,105 +211,337 @@
             <!-- breadcrumb-area-end -->           
            
 
-        <!-- Project Details -->
-        <div class="project-details-area ptb-100">
+        <!-- Enhanced Services Section with Interactive Features -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <style>
+        /* Card Styles */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.12);
+            width: 340px;
+            padding: 32px 24px 24px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 16px 48px rgba(60,60,100,0.18);
+            z-index: 2;
+        }
+        .service-card .icon {
+            font-size: 48px;
+            color: #4f8cff;
+            margin-bottom: 18px;
+            transition: color 0.3s;
+        }
+        .service-card:hover .icon {
+            color: #ff7a59;
+            animation: bounceIn 0.7s;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            font-size: 1rem;
+            color: #444;
+            min-height: 70px;
+        }
+        .service-card .more-btn {
+            display: inline-block;
+            margin-top: 18px;
+            color: #4f8cff;
+            background: #f3f7ff;
+            border-radius: 8px;
+            padding: 7px 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .service-card .more-btn:hover {
+            background: #4f8cff;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .services-grid { flex-direction: column; align-items: center; }
+        }
+
+        /* Popup Styles */
+        .service-popup-bg {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(30,40,60,0.65);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        .service-popup-bg.active { display: flex; }
+        .service-popup {
+            background: #fff;
+            border-radius: 18px;
+            max-width: 540px;
+            width: 95vw;
+            padding: 38px 32px 32px 32px;
+            box-shadow: 0 12px 48px rgba(30,40,60,0.18);
+            position: relative;
+            animation: zoomIn 0.4s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .service-popup .close-btn {
+            position: absolute;
+            right: 18px; top: 18px;
+            font-size: 1.7rem;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 2;
+        }
+        .service-popup .close-btn:hover { color: #ff7a59; }
+        .service-popup img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 18px 0;
+            height: auto;
+        }
+        .service-popup h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .service-popup h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #4f8cff;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.25); }
+            60% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mobile popup improvements */
+        @media (max-width: 600px) {
+            .service-popup {
+            max-width: 98vw;
+            width: 98vw;
+            padding: 18px 8px 18px 8px;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            }
+            .service-popup h2 {
+            font-size: 1.05rem;
+            }
+            .service-popup h3 {
+            font-size: 0.98rem;
+            }
+            .service-popup img {
+            margin: 10px 0;
+            border-radius: 7px;
+            }
+            .service-popup .close-btn {
+            right: 8px;
+            top: 8px;
+            font-size: 1.3rem;
+            }
+        }
+        </style>
+
+        <section class="services-section">
             <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                <!-- Graphic Designing Section -->
-                <h2 style="padding-top: 30px;">1. Graphic Designing</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Graphic Designing?</h2>
-                    <p>Graphic design is a field focused on creating visual content to communicate messages effectively. It involves combining text, images, and other visual elements to convey information, ideas, or emotions in a visually engaging manner. Graphic design is used across a wide range of media, including print, digital, and environmental applications.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Stunning Graphic Designs That Captivate Your Audience</h3>
-                    <p>Our graphic design service is dedicated to creating visually stunning and engaging designs that capture the essence of your brand. Whether it's logos, brochures, social media graphics, or promotional materials, our expert designers use creativity and innovation to bring your vision to life. With a focus on aesthetics and functionality, we ensure that every design not only looks great but also communicates your message effectively. Elevate your brand's visual identity with our exceptional graphic design solutions.</p>
-                    </div>
-                    <img src="img/services/img-1.png" alt="Graphic Designing" style="padding-top: 30px;">
+            <h2 class="text-center animate__animated animate__fadeInDown" style="font-weight:800;letter-spacing:1px;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="graphic">
+                <div class="icon"><i class="fas fa-palette"></i></div>
+                <h3>Graphic Designing</h3>
+                <p>Stunning visuals, branding, and creative assets to make your business stand out.</p>
+                <a href="#" class="more-btn" data-service="graphic">Learn More</a>
                 </div>
-
-                <!-- Video Editing Section -->
-                <h2 style="padding-top: 60px;">2. Video Editing</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Video Editing?</h2>
-                    <p>Video editing is the process of manipulating and rearranging video shots to create a new work. It involves cutting, trimming, adding effects, transitions, sound, and graphics to produce a polished and engaging final video. Video editing is essential for storytelling, marketing, education, and entertainment across digital platforms.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Professional Video Editing That Tells Your Story</h3>
-                    <p>Our video editing service transforms raw footage into captivating visual stories that engage your audience. Whether you need promotional videos, social media content, explainer videos, or event highlights, our skilled editors use the latest tools and creative techniques to deliver high-quality results. We focus on clarity, pacing, and visual appeal to ensure your message is communicated effectively and memorably.</p>
-                    </div>
-                    <img src="img/services/img-2.png" alt="Video Editing" style="padding-top: 30px;">
+                <div class="service-card" data-service="video">
+                <div class="icon"><i class="fas fa-video"></i></div>
+                <h3>Video Editing</h3>
+                <p>Professional editing for promos, social media, and storytelling that captivates.</p>
+                <a href="#" class="more-btn" data-service="video">Learn More</a>
                 </div>
-
-                <!-- Web Development Section -->
-                <h2 style="padding-top: 60px;">3. Web Development</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Web Development?</h2>
-                    <p>Web development involves building and maintaining websites and web applications. It covers everything from creating simple static pages to complex dynamic platforms, using technologies like HTML, CSS, JavaScript, and backend frameworks. Web development ensures your online presence is functional, secure, and scalable.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Custom Web Solutions for Your Business</h3>
-                    <p>Our web development team delivers robust, responsive, and user-friendly websites tailored to your business needs. From e-commerce platforms to corporate sites and custom web applications, we use the latest technologies to ensure your website is fast, secure, and easy to manage. Let us help you establish a strong digital foundation for your brand.</p>
-                    </div>
-                    <img src="img/services/img-3.png" alt="Web Development" style="padding-top: 30px;">
+                <div class="service-card" data-service="webdev">
+                <div class="icon"><i class="fas fa-code"></i></div>
+                <h3>Web Development</h3>
+                <p>Custom, responsive, and scalable websites built for your business goals.</p>
+                <a href="#" class="more-btn" data-service="webdev">Learn More</a>
                 </div>
-
-                <!-- Web Designing Section -->
-                <h2 style="padding-top: 60px;">4. Web Designing</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Web Designing?</h2>
-                    <p>Web designing focuses on the visual aesthetics and usability of websites. It involves creating layouts, selecting color schemes, typography, and ensuring a seamless user experience. Good web design makes your website attractive, intuitive, and aligned with your brand identity.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Creative Web Designs That Engage Visitors</h3>
-                    <p>Our web designing service combines creativity with usability to deliver visually appealing and easy-to-navigate websites. We prioritize user experience, ensuring your site looks great on all devices and keeps visitors engaged. Stand out online with our professional web design solutions.</p>
-                    </div>
-                    <img src="img/services/img-4.png" alt="Web Designing" style="padding-top: 30px;">
+                <div class="service-card" data-service="webdesign">
+                <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Web Designing</h3>
+                <p>Modern, user-friendly designs that engage and convert your visitors.</p>
+                <a href="#" class="more-btn" data-service="webdesign">Learn More</a>
                 </div>
-
-                <!-- Digital Marketing Section -->
-                <h2 style="padding-top: 60px;">5. Digital Marketing</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Digital Marketing?</h2>
-                    <p>Digital marketing is the promotion of products or services using digital channels such as search engines, social media, email, and websites. It helps businesses reach a wider audience, generate leads, and increase sales through targeted online strategies.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Grow Your Business with Effective Digital Marketing</h3>
-                    <p>Our digital marketing experts craft data-driven strategies to boost your online presence and drive results. From SEO and social media marketing to PPC and content creation, we help you connect with your target audience and achieve your business goals.</p>
-                    </div>
-                    <img src="img/services/img-5.png" alt="Digital Marketing" style="padding-top: 30px;">
+                <div class="service-card" data-service="digital">
+                <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Digital Marketing</h3>
+                <p>SEO, social media, PPC, and content strategies to grow your brand online.</p>
+                <a href="#" class="more-btn" data-service="digital">Learn More</a>
                 </div>
-
-                <!-- Office Automation Section -->
-                <h2 style="padding-top: 60px;">6. Office Automation</h2>
-                <div class="details-item">
-                    <div class="details-img">
-                    <h2 style="padding-top: 30px;">What is Office Automation?</h2>
-                    <p>Office automation refers to using technology to streamline and automate routine office tasks, such as data management, communication, and workflow processes. It increases efficiency, reduces errors, and allows your team to focus on more strategic activities.</p>
-                    </div>
-                    <div class="details-brief">
-                    <h3>Enhance Productivity with Office Automation</h3>
-                    <p>We provide office automation solutions that simplify your business operations. From cloud-based tools and workflow automation to document management and communication systems, our services help you save time, reduce costs, and improve overall productivity.</p>
-                    </div>
-                    <img src="img/services/img-6.png" alt="Office Automation" style="padding-top: 30px;">
-                </div>
-
-                <!-- 247 Marketers Summary -->
-                <div class="details-brief">
-                    <h3 style="padding-top: 30px;">247 Marketers: Your One-Stop Marketing Solution</h3>
-                    <p>At 247 Marketers, we offer a comprehensive range of marketing services designed to help your business thrive in today's competitive landscape. From WhatsApp API integration and cloud solutions to social media management, graphic design, web development, digital marketing, and office automation, we have the expertise to meet your unique marketing needs. Our team of skilled professionals is dedicated to delivering innovative and effective strategies that drive results.</p>
-                </div>
+                <div class="service-card" data-service="office">
+                <div class="icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Office Automation</h3>
+                <p>Automate workflows and boost productivity with smart office solutions.</p>
+                <a href="#" class="more-btn" data-service="office">Learn More</a>
                 </div>
             </div>
+            </div>
+        </section>
+
+        <!-- Popups for Each Service -->
+        <div class="service-popup-bg" id="service-popup-bg">
+            <div class="service-popup animate__animated animate__fadeInUp" id="service-popup">
+            <button class="close-btn" id="popup-close" aria-label="Close">&times;</button>
+            <div id="popup-content"></div>
             </div>
         </div>
-        <!-- End Project Details -->    
+
+        <script>
+        // Service details data
+        const serviceDetails = {
+            graphic: {
+            title: "Graphic Designing",
+            img: "img/services/img-1.png",
+            what: "What is Graphic Designing?",
+            whatDesc: "Graphic design is a field focused on creating visual content to communicate messages effectively. It involves combining text, images, and other visual elements to convey information, ideas, or emotions in a visually engaging manner.",
+            brief: "Stunning Graphic Designs That Captivate Your Audience",
+            briefDesc: "Our graphic design service is dedicated to creating visually stunning and engaging designs that capture the essence of your brand. Whether it's logos, brochures, social media graphics, or promotional materials, our expert designers use creativity and innovation to bring your vision to life.",
+            },
+            video: {
+            title: "Video Editing",
+            img: "img/services/img-2.png",
+            what: "What is Video Editing?",
+            whatDesc: "Video editing is the process of manipulating and rearranging video shots to create a new work. It involves cutting, trimming, adding effects, transitions, sound, and graphics to produce a polished and engaging final video.",
+            brief: "Professional Video Editing That Tells Your Story",
+            briefDesc: "Our video editing service transforms raw footage into captivating visual stories that engage your audience. Whether you need promotional videos, social media content, explainer videos, or event highlights, our skilled editors use the latest tools and creative techniques to deliver high-quality results.",
+            },
+            webdev: {
+            title: "Web Development",
+            img: "img/services/img-3.png",
+            what: "What is Web Development?",
+            whatDesc: "Web development involves building and maintaining websites and web applications. It covers everything from creating simple static pages to complex dynamic platforms, using technologies like HTML, CSS, JavaScript, and backend frameworks.",
+            brief: "Custom Web Solutions for Your Business",
+            briefDesc: "Our web development team delivers robust, responsive, and user-friendly websites tailored to your business needs. From e-commerce platforms to corporate sites and custom web applications, we use the latest technologies to ensure your website is fast, secure, and easy to manage.",
+            },
+            webdesign: {
+            title: "Web Designing",
+            img: "img/services/img-4.png",
+            what: "What is Web Designing?",
+            whatDesc: "Web designing focuses on the visual aesthetics and usability of websites. It involves creating layouts, selecting color schemes, typography, and ensuring a seamless user experience.",
+            brief: "Creative Web Designs That Engage Visitors",
+            briefDesc: "Our web designing service combines creativity with usability to deliver visually appealing and easy-to-navigate websites. We prioritize user experience, ensuring your site looks great on all devices and keeps visitors engaged.",
+            },
+            digital: {
+            title: "Digital Marketing",
+            img: "img/services/img-5.png",
+            what: "What is Digital Marketing?",
+            whatDesc: "Digital marketing is the promotion of products or services using digital channels such as search engines, social media, email, and websites. It helps businesses reach a wider audience, generate leads, and increase sales through targeted online strategies.",
+            brief: "Grow Your Business with Effective Digital Marketing",
+            briefDesc: "Our digital marketing experts craft data-driven strategies to boost your online presence and drive results. From SEO and social media marketing to PPC and content creation, we help you connect with your target audience and achieve your business goals.",
+            },
+            office: {
+            title: "Office Automation",
+            img: "img/services/img-6.png",
+            what: "What is Office Automation?",
+            whatDesc: "Office automation refers to using technology to streamline and automate routine office tasks, such as data management, communication, and workflow processes.",
+            brief: "Enhance Productivity with Office Automation",
+            briefDesc: "We provide office automation solutions that simplify your business operations. From cloud-based tools and workflow automation to document management and communication systems, our services help you save time, reduce costs, and improve overall productivity.",
+            }
+        };
+
+        // Popup logic
+        document.querySelectorAll('.more-btn, .service-card').forEach(el => {
+            el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const key = this.getAttribute('data-service');
+            if (!key || !serviceDetails[key]) return;
+            const d = serviceDetails[key];
+            document.getElementById('popup-content').innerHTML = `
+                <h2>${d.title}</h2>
+                <img src="${d.img}" alt="${d.title}">
+                <h3>${d.what}</h3>
+                <p>${d.whatDesc}</p>
+                <h3>${d.brief}</h3>
+                <p>${d.briefDesc}</p>
+            `;
+            document.getElementById('service-popup-bg').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            });
+        });
+        document.getElementById('popup-close').onclick = function() {
+            document.getElementById('service-popup-bg').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        document.getElementById('service-popup-bg').onclick = function(e) {
+            if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+            }
+        };
+        </script>
+
+        <!-- 247 Marketers Summary with Hover Reveal -->
+        <div class="container" style="margin-bottom:60px;">
+            <div class="details-brief" style="background:#f3f7ff;border-radius:14px;padding:32px 28px;position:relative;overflow:hidden;">
+                <h3 style="padding-top: 10px; font-weight:700;letter-spacing:1px;">247 Marketers: Your One-Stop Marketing Solution</h3>
+                <p>
+                    At 247 Marketers, we offer a comprehensive range of marketing services designed to help your business thrive in today's competitive landscape.
+                    <span class="hover-more" style="color:#4f8cff;cursor:pointer;text-decoration:underline;">(see more)</span>
+                </p>
+                <div class="hover-popup" style="display:none;position:absolute;left:0;top:100%;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(60,60,100,0.12);padding:22px 24px;width:100%;z-index:10;">
+                    <ul style="margin-bottom:0;">
+                        <li>WhatsApp API integration and cloud solutions</li>
+                        <li>Social media management</li>
+                        <li>Graphic design, web development, digital marketing</li>
+                        <li>Office automation and more</li>
+                    </ul>
+                    <p style="margin-top:10px;">Our team of skilled professionals is dedicated to delivering innovative and effective strategies that drive results.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+        document.querySelector('.hover-more').addEventListener('mouseenter', function() {
+            this.parentElement.nextElementSibling.style.display = 'block';
+        });
+        document.querySelector('.hover-more').addEventListener('mouseleave', function() {
+            setTimeout(() => {
+                this.parentElement.nextElementSibling.style.display = 'none';
+            }, 300);
+        });
+        document.querySelector('.hover-popup').addEventListener('mouseenter', function() {
+            this.style.display = 'block';
+        });
+        document.querySelector('.hover-popup').addEventListener('mouseleave', function() {
+            this.style.display = 'none';
+        });
+        </script>
 
         <!-- footer -->
         <footer class="footer-bg footer-p  p-relative">
