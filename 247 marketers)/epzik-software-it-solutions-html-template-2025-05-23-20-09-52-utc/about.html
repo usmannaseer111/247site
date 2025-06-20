@@ -96,7 +96,7 @@
 											</li>          
                                             <li class="has-sub"><a href="about.html">About Us</a>
                                                 <ul>
-                                                    <li><a href="about.html">Message From CEO</a></li>
+                                                    <li><a href="about.html#ceo">Message From CEO</a></li>
                                                     <li><a href="team.html">Our Team</a></li>
                                                     <li><a href="pricing.html">Our Mission</a></li>
                                                     <li><a href="projects.html">Our Visiom</a></li>
@@ -199,219 +199,521 @@
             <!-- breadcrumb-area-end -->
 
                      <!-- Project Details -->
-    <div class="project-details-area ptb-100">
+    <!-- CEO Section with Hover Popup -->
+    <div class="project-details-area ptb-100" id="ceo">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="details-item">
+                    <div class="details-item ceo-card">
                         <div class="details-fact">
-                            <div class="row align-items-center  justify-content-center">
+                            <div class="row align-items-center justify-content-center">
                                 <div class="col-lg-5">
-                                    <div class="img">
-                                        <img src="img/team/farhan-saleem.jpg" alt="Details" style="padding-top: 30px;">
+                                    <div class="img ceo-img-hover">
+                                        <div class="ceo-img-hover-container" style="position: relative; display: inline-block;">
+                                            <img src="img/team/farhan-saleem.jpg" alt="Details" class="ceo-img-effect" style="padding-top: 30px; border-radius: 50%; box-shadow: 0 4px 24px rgba(0,123,255,0.18); transition: transform 0.4s, box-shadow 0.4s;">
+                                            <div class="ceo-img-glow"></div>
+                                        </div>
+                                        <style>
+                                        .ceo-img-hover-container {
+                                            position: relative;
+                                            display: inline-block;
+                                        }
+                                        .ceo-img-effect {
+                                           
+                                            border-radius: 50%;
+                                            box-shadow: 0 4px 24px rgba(0,123,255,0.18);
+                                            transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+                                            z-index: 2;
+                                            position: relative;
+                                        }
+                                        .ceo-img-hover-container:hover .ceo-img-effect {
+                                            transform: scale(1.08) rotate(-2deg);
+                                            box-shadow: 0 12px 48px rgba(0,123,255,0.28), 0 0 32px #007bff55;
+                                            border-color: #0056b3;
+                                        }
+                                        .ceo-img-glow {
+                                            content: "";
+                                            position: absolute;
+                                            top: 30px;
+                                            left: 0;
+                                            width: 100%;
+                                            height: calc(100% - 30px);
+                                            border-radius: 50%;
+                                            pointer-events: none;
+                                            z-index: 1;
+                                            opacity: 0;
+                                            transition: opacity 0.4s;
+                                            box-shadow: 0 0 40px 16px #007bff55, 0 0 80px 32px #00c6ff33;
+                                        }
+                                        .ceo-img-hover-container:hover .ceo-img-glow {
+                                            opacity: 1;
+                                        }
+                                        </style>
+                                        <div class="ceo-popup">
+                                            <h4>Contact CEO</h4>
+                                            <p><i class="fa fa-envelope"></i> info@247marketers.com</p>
+                                            <p><i class="fa fa-phone"></i> +92 346 0019753</p>
+                                            <a href="mailto:info@247marketers.com" class="btn btn-sm btn-primary">Email Now</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="content ceo-info-container">
-                                        <b>
-                                        <ul>
-                                            <li><span class="left-span">Position:</span><span class="right-span">CEO & Founder</span></li>
-                                            <li><span class="left-span">Name:</span><span class="right-span">Mr. Farhan Saleem</span></li>
-                                            <li><span class="left-span">Practice Area:</span><span class="right-span">Education , HR and Digital Marketing Consultant</span></li>
-                                            <li><span class="left-span">Experience:</span><span class="right-span">6 Years</span></li>
-                                            <li><span class="left-span">Phone:</span><span class="right-span">+92 346 0019753</span></li>
-                                            <li><span class="left-span">Website:</span><span class="right-span">247marketers.com</span></li>
-                                            <li><span class="left-span">Email:</span><span class="right-span">info@247marketers.com</span></li>
+                                        <ul class="ceo-info-list">
+                                            <li>
+                                                <span class="left-span">Position:</span>
+                                                <span class="right-span">CEO & Founder</span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Name:</span>
+                                                <span class="right-span">Mr. Farhan Saleem</span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Practice Area:</span>
+                                                <span class="right-span">Education, HR and Digital Marketing Consultant</span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Experience:</span>
+                                                <span class="right-span">6 Years</span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Phone:</span>
+                                                <span class="right-span ceo-phone-hover">
+                                                    +92 346 0019753
+                                                    <span class="ceo-popup-mini">
+                                                        <i class="fa fa-phone"></i> Click to call<br>
+                                                        <a href="tel:+923460019753" class="btn btn-xs btn-success" style="margin-top:5px;">Call Now</a>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Website:</span>
+                                                <span class="right-span ceo-website-hover">
+                                                    247marketers.com
+                                                    <span class="ceo-popup-mini">
+                                                        <i class="fa fa-globe"></i> Visit Website<br>
+                                                        <a href="https://247marketers.com" target="_blank" class="btn btn-xs btn-info" style="margin-top:5px;">Open</a>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="left-span">Email:</span>
+                                                <span class="right-span ceo-email-hover">
+                                                    info@247marketers.com
+                                                    <span class="ceo-popup-mini">
+                                                        <i class="fa fa-envelope"></i> Send Email<br>
+                                                        <a href="mailto:info@247marketers.com" class="btn btn-xs btn-primary" style="margin-top:5px;">Email</a>
+                                                    </span>
+                                                </span>
+                                            </li>
                                         </ul>
-                                        </b>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="summary" style="padding-top: 20px;">
-                                <h1 class="summary-title">Summary</h1>
-                                <p class="summary-description">
-                                    As CEO of 247 Marketers, I am proud to lead a dynamic team focused on empowering businesses with innovative digital solutions. Our expertise spans digital marketing, web development, graphic design, and automation tools tailored to modern business needs. We are dedicated to delivering measurable results, fostering long-term partnerships, and helping our clients thrive in a rapidly changing digital world. At 247 Marketers, your growth is our mission, and we continuously strive to exceed expectations through creativity, technology, and unwavering commitment to excellence.
-                                </p>
-                            </div>
+                                </div>
+                                <div class="summary" style="padding-top: 20px;">
+                                    <h1 class="summary-title">Summary</h1>
+                                    <p class="summary-description">
+                                        As CEO of 247 Marketers, I am proud to lead a dynamic team focused on empowering businesses with innovative digital solutions. Our expertise spans digital marketing, web development, graphic design, and automation tools tailored to modern business needs. We are dedicated to delivering measurable results, fostering long-term partnerships, and helping our clients thrive in a rapidly changing digital world. At 247 Marketers, your growth is our mission, and we continuously strive to exceed expectations through creativity, technology, and unwavering commitment to excellence.
+                                    </p>
+                                </div>
+                                <style>
+                                .ceo-info-container {
+                                    background: linear-gradient(90deg, #f8faff 60%, #e3f0ff 100%);
+                                    border-radius: 16px;
+                                    box-shadow: 0 4px 24px rgba(0,123,255,0.07);
+                                    padding: 32px 28px 24px 28px;
+                                    margin-bottom: 20px;
+                                    transition: box-shadow 0.3s;
+                                    position: relative;
+                                }
+                                .ceo-info-container:hover {
+                                    box-shadow: 0 8px 32px rgba(0,123,255,0.15);
+                                }
+                                .ceo-info-list {
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+                                    font-size: 1.08rem;
+                                    font-weight: 500;
+                                }
+                                .ceo-info-list li {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    padding: 10px 0;
+                                    border-bottom: 1px dashed #b3d7ff;
+                                    position: relative;
+                                    transition: background 0.2s;
+                                }
+                                .ceo-info-list li:last-child {
+                                    border-bottom: none;
+                                }
+                                .left-span {
+                                    min-width: 130px;
+                                    color: #007bff;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
+                                    margin-right: 10px;
+                                }
+                                .right-span {
+                                    color: #222;
+                                    font-weight: 600;
+                                    position: relative;
+                                    cursor: pointer;
+                                    transition: color 0.2s;
+                                }
+                                .right-span:hover {
+                                    color: #0056b3;
+                                }
+                                .ceo-popup-mini {
+                                    display: none;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 120%;
+                                    min-width: 170px;
+                                    background: #fff;
+                                    border-radius: 10px;
+                                    box-shadow: 0 8px 32px rgba(0,123,255,0.13);
+                                    padding: 14px 18px;
+                                    z-index: 20;
+                                    border: 2px solid #007bff;
+                                    text-align: center;
+                                    font-size: 0.98rem;
+                                    animation: fadeInUp 0.3s;
+                                }
+                                .ceo-phone-hover:hover .ceo-popup-mini,
+                                .ceo-email-hover:hover .ceo-popup-mini,
+                                .ceo-website-hover:hover .ceo-popup-mini {
+                                    display: block;
+                                }
+                                .ceo-popup-mini .btn-xs {
+                                    font-size: 0.85rem;
+                                    padding: 3px 12px;
+                                    border-radius: 16px;
+                                }
+                                .summary-title {
+                                    font-size: 2rem;
+                                    color: #007bff;
+                                    font-weight: 700;
+                                    margin-bottom: 10px;
+                                    letter-spacing: 1px;
+                                    text-shadow: 0 2px 8px rgba(0,123,255,0.07);
+                                }
+                                .summary-description {
+                                    background: #f8faff;
+                                    border-radius: 12px;
+                                    padding: 22px 28px;
+                                    font-size: 1.08rem;
+                                    color: #222;
+                                    box-shadow: 0 2px 8px rgba(0,123,255,0.04);
+                                    transition: box-shadow 0.3s;
+                                }
+                                .summary-description:hover {
+                                    box-shadow: 0 8px 32px rgba(0,123,255,0.10);
+                                }
+                                </style>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Project Details -->
 
-            <!-- Team -->
-        <section class="team-area-two ptb-100" style="padding-top: 30px;">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <h2 style="text-align: center; padding-bottom: 30px;">Our Team</h2>
+    <!-- Team Section with Hover Effects and Popups -->
+    <section class="team-area-two ptb-100" style="padding-top: 30px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h2 style="text-align: center; padding-bottom: 30px;">Our Team</h2>
 
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item">
-                            <div class="top">
-                                <img src="img/team/usman-saleem.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.facebook.com/profile.php?id=100007203063475" target="_blank"><i class='bx bxl-facebook'></i></a>
-                                    </li>
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Usman Saleem</h3>
-                                <span>Co-Founder & Managing Director</span>
+                <!-- Team Member 1 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/usman-saleem.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.facebook.com/profile.php?id=100007203063475" target="_blank"><i class='fab fa-facebook-f'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Usman Saleem</h4>
+                                <p>Co-Founder & Managing Director</p>
+                                <a href="https://www.facebook.com/profile.php?id=100007203063475" target="_blank" class="btn btn-sm btn-info">Facebook</a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item two">
-                            <div class="top">
-                                <img src="img/team/shazar.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.linkedin.com/in/shahzar-asghar-0b7959294/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://shahzarasghar.github.io/myportfolio.github.io/" target="_blank"><i class='bx bxl-github'></i></a>
-                                    </li>
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Shazar Asghar</h3>
-                                <span>UI/UX Designer</span>
-                            </div>
+                        <div class="bottom">
+                            <h3>Usman Saleem</h3>
+                            <span>Co-Founder & Managing Director</span>
                         </div>
                     </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item three">
-                            <div class="top">
-                                <img src="img/team/ibrahim.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.facebook.com/ibrahim.zaman.50746" target="_blank"><i class='bx bxl-facebook'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://www.linkedin.com/in/ibrahim-zaman-125a23285" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://github.com/Ibrahim-Zaman" target="_blank"><i class='bx bxl-github'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://www.instagram.com/ibrahimzaman10" target="_blank"><i class='bx bxl-instagram'></i></a>
-                                    </li> 
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Ibrahim Zaman</h3>
-                                <span>Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item four">
-                            <div class="top">
-                                <img src="img/team/profile-blank-picture.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.facebook.com/syed.osama.5454" target="_blank"><i class='bx bxl-facebook'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://www.linkedin.com/in/osamasyed270/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://github.com/osamasyed270" target="_blank"><i class='bx bxl-github'></i></a>
-                                    </li> 
-                                    <li>
-                                        <a href="https://www.instagram.com/osamasyed270" target="_blank"><i class='bx bxl-instagram'></i></a>
-                                    </li> 
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Syed Osama Sajjad</h3>
-                                <span>Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item">
-                            <div class="top">
-                                <img src="img/team/Saifur-rehman.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.linkedin.com/in/saif-ur-rehman-847aa0257/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                    </li>
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Saif Ur Rehman</h3>
-                                <span>Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="team-item two">
-                            <div class="top">
-                                <img src="img/team/Usama.jpg" alt="Team">
-                                <ul class="team-social">
-                                    <li>
-                                        <a href="https://www.instagram.com/khanusama09" target="_blank"><i class='bx bxl-instagram'></i></a>
-                                    </li> 
-                                </ul>
-                                <div class="share-btn">
-                                    <span>
-                                        <i class="bx bx-share-alt"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <h3>Usama Khan</h3>
-                                <span>Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-
                 </div>
 
+                <!-- Team Member 2 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/shazar.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/shahzar-asghar-0b7959294/" target="_blank"><i class='fab fa-linkedin-in'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://shahzarasghar.github.io/myportfolio.github.io/" target="_blank"><i class='fab fa-github'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Shazar Asghar</h4>
+                                <p>UI/UX Designer</p>
+                                <a href="https://www.linkedin.com/in/shahzar-asghar-0b7959294/" target="_blank" class="btn btn-sm btn-primary">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Shazar Asghar</h3>
+                            <span>UI/UX Designer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/ibrahim.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.facebook.com/ibrahim.zaman.50746" target="_blank"><i class='fab fa-facebook-f'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/ibrahim-zaman-125a23285" target="_blank"><i class='fab fa-linkedin-in'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/Ibrahim-Zaman" target="_blank"><i class='fab fa-github'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ibrahimzaman10" target="_blank"><i class='fab fa-instagram'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Ibrahim Zaman</h4>
+                                <p>Web Developer</p>
+                                <a href="https://github.com/Ibrahim-Zaman" target="_blank" class="btn btn-sm btn-dark">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Ibrahim Zaman</h3>
+                            <span>Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/profile-blank-picture.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.facebook.com/syed.osama.5454" target="_blank"><i class='fab fa-facebook-f'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/osamasyed270/" target="_blank"><i class='fab fa-linkedin-in'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/osamasyed270" target="_blank"><i class='fab fa-github'></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/osamasyed270" target="_blank"><i class='fab fa-instagram'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Syed Osama Sajjad</h4>
+                                <p>Web Developer</p>
+                                <a href="https://github.com/osamasyed270" target="_blank" class="btn btn-sm btn-dark">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Syed Osama Sajjad</h3>
+                            <span>Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/Saifur-rehman.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/saif-ur-rehman-847aa0257/" target="_blank"><i class='fab fa-linkedin-in'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Saif Ur Rehman</h4>
+                                <p>Web Developer</p>
+                                <a href="https://www.linkedin.com/in/saif-ur-rehman-847aa0257/" target="_blank" class="btn btn-sm btn-primary">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Saif Ur Rehman</h3>
+                            <span>Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="team-item team-hover">
+                        <div class="top">
+                            <img src="img/team/Usama.jpg" alt="Team">
+                            <ul class="team-social">
+                                <li>
+                                    <a href="https://www.instagram.com/khanusama09" target="_blank"><i class='fab fa-instagram'></i></a>
+                                </li>
+                            </ul>
+                            <div class="team-popup">
+                                <h4>Usama Khan</h4>
+                                <p>Web Developer</p>
+                                <a href="https://www.instagram.com/khanusama09" target="_blank" class="btn btn-sm btn-danger">Instagram</a>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <h3>Usama Khan</h3>
+                            <span>Web Developer</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Custom CSS for popups and hovers -->
+    <style>
+    /* CEO Card Hover Popup */
+    .ceo-img-hover {
+        position: relative;
+        overflow: visible;
+    }
+    .ceo-popup {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 20px;
+        min-width: 220px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        padding: 20px;
+        z-index: 10;
+        transition: all 0.3s;
+
+    }
+    .ceo-img-hover:hover .ceo-popup {
+        display: block;
+        animation: fadeInUp 0.4s;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Team Card Hover Popup */
+    .team-hover {
+        position: relative;
+        overflow: visible;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-hover:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        z-index: 2;
+    }
+    .team-hover .top {
+        position: relative;
+    }
+    .team-popup {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, -10%);
+        min-width: 200px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        padding: 18px 20px;
+        z-index: 10;
+        text-align: center;
+    }
+    .team-hover:hover .team-popup {
+        display: block;
+        animation: fadeInUp 0.4s;
+    }
+    .team-item img {
+        border-radius: 50%;
+        transition: box-shadow 0.3s;
+        box-shadow: 0 4px 16px rgba(0,123,255,0.12);
+    }
+    .team-hover:hover img {
+        box-shadow: 0 8px 32px rgba(0,123,255,0.25);
+    }
+    .team-social li a {
+        color: #007bff;
+        background: #fff;
+        border-radius: 50%;
+        padding: 8px;
+        margin: 0 2px;
+        font-size: 18px;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    }
+    .team-social li a:hover {
+        background: #007bff;
+        color: #fff;
+    }
+    .team-item .bottom {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border-radius: 0 0 12px 12px;
+        padding: 18px 0 10px 0;
+        text-align: center;
+        margin-top: -8px;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    }
+    .team-item .bottom h3 {
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .team-item .bottom span {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    .team-item {
+        margin-bottom: 40px;
+        border-radius: 12px;
+        background: #f8faff;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.04);
+        transition: box-shadow 0.3s;
+    }
+    .team-item:hover {
+        box-shadow: 0 8px 32px rgba(0,123,255,0.12);
+    }
+    .btn.btn-sm {
+        font-size: 0.9rem;
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-top: 8px;
+    }
+    </style>
         <!-- End Team -->
 
 
         <!-- mission start -->
             <div class="container">
                 <h1 class="about-section-title" style="padding-top: 150px; text-align: center;">Our Mission</h1>
+                
                 <p class="about-section-description" style="text-align: center; max-width: 800px; margin: 0 auto;">
                     247 Marketers delivers customized digital solutions to improve user experience and boost online visibility. We provide 24/7 support and focus on helping clients grow globally. Our commitment to excellence and results-driven partnerships ensures long-term success in the evolving digital world.
                 </p>
