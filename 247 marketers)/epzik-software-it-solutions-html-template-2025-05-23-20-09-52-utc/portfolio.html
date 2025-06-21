@@ -105,13 +105,12 @@
                                               </li>
                                             <li class="has-sub"><a href="services.html">Services</a>
 												<ul>
-                                                     <li><a href="projects.html">Graphic Designing</a></li>
-                                                    <li><a href="pricing.html">Video Editing</a></li>
-                                                    <li><a href="team.html">Web Development</a></li>                                                    
-                                                    <li><a href="faq.html">Web Designing</a></li>                                                   
-                                                    <li><a href="blog-details.html">Digital Marketing</a></li>
-                                                    <li><a href="shop.html">Office Automation</a></li>
-                                                    <li><a href="shop-details.html">Youtube Automation</a></li>
+                                                     <li><a href="servicves.html#graphic">Graphic Designing</a></li>
+                                                    <li><a href="services.html#video">Video Editing</a></li>
+                                                    <li><a href="services.html#Web">Web Development</a></li>                                                    
+                                                    <li><a href="services.html#webd">Web Designing</a></li>                                                   
+                                                    <li><a href="services.html#digital">Digital Marketing</a></li>
+                                                    <li><a href="services.html#office">Office Automation</a></li>
                                                 </ul>
 											</li>
                                             <li><a href="portfolio.html">Portfolio</a></li>
@@ -124,7 +123,7 @@
                             <div class="col-xl-4 col-lg-4 text-right d-none d-lg-block mt-20 mb-20">
                                <div class="login">
                                     <ul>
-                                       <li><a href="contact.html" class="btn"><i class="fa-regular fa-angle-right"></i> Get in Touch</a></li>
+                                       <li><a href="verify.html" class="btn"><i class="fa-regular fa-angle-right"></i>Verify Certificates</a></li>
                                     </ul>
                                 </div>       
                             </div>
@@ -234,20 +233,15 @@
 .partner-slider-modern {
     display: flex;
     gap: 48px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    overflow: hidden;
     padding: 16px 0 8px 0;
-    scrollbar-width: thin;
-    scrollbar-color: #b3c6ff #e0e7ef;
-    transition: box-shadow 0.3s;
+    position: relative;
+    /* Hide scrollbar for all browsers */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 .partner-slider-modern::-webkit-scrollbar {
-    height: 8px;
-    background: #e0e7ef;
-}
-.partner-slider-modern::-webkit-scrollbar-thumb {
-    background: #b3c6ff;
-    border-radius: 4px;
+    display: none;
 }
 .partner-item-modern {
     flex: 0 0 auto;
@@ -288,55 +282,29 @@
 }
 </style>
 <script>
+// Pure JS auto slider (no scrollbar, no drag)
+// Duplicates items for infinite effect
 (function(){
-    // Drag-to-scroll
     const slider = document.getElementById('partnerSliderModern');
-    let isDown = false, startX, scrollLeft;
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.classList.add('active');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('active'); });
-    slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('active'); });
-    slider.addEventListener('mousemove', (e) => {
-        if(!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-    // Touch support
-    let touchStartX = 0, touchScrollLeft = 0;
-    slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].pageX - slider.offsetLeft;
-        touchScrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener('touchmove', (e) => {
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - touchStartX) * 1.2;
-        slider.scrollLeft = touchScrollLeft - walk;
-    });
-    // Auto-scroll
-    let autoScrollInterval;
-    function startAutoScroll() {
-        autoScrollInterval = setInterval(() => {
-            if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 2) {
-                slider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                slider.scrollBy({ left: 1.5, behavior: 'smooth' });
-            }
-        }, 18);
+    const items = Array.from(slider.children);
+    // Duplicate items for seamless loop
+    items.forEach(item => slider.appendChild(item.cloneNode(true)));
+    let scrollAmount = 0;
+    let itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(slider).gap || 48);
+    function autoScroll() {
+        scrollAmount += 1;
+        if (scrollAmount >= slider.scrollWidth / 2) {
+            scrollAmount = 0;
+        }
+        slider.scrollLeft = scrollAmount;
+        requestAnimationFrame(autoScroll);
     }
-    function stopAutoScroll() { clearInterval(autoScrollInterval); }
-    slider.addEventListener('mouseenter', stopAutoScroll);
-    slider.addEventListener('mouseleave', startAutoScroll);
-    slider.addEventListener('mousedown', stopAutoScroll);
-    slider.addEventListener('mouseup', startAutoScroll);
-    slider.addEventListener('touchstart', stopAutoScroll);
-    slider.addEventListener('touchend', startAutoScroll);
-    startAutoScroll();
+    // Prevent user scroll
+    slider.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+    slider.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+    slider.addEventListener('mousedown', e => e.preventDefault());
+    slider.scrollLeft = 0;
+    requestAnimationFrame(autoScroll);
 })();
 </script>
 <!-- End Partner Section -->
@@ -370,7 +338,7 @@
                     </div>
                 </div>
                 <div class="portfolio-client mb-5">
-                    <h3 class="portfolio-client-title">Domino Pizza</h3>
+                    <h3 class="portfolio-client-title">Oven Flame</h3>
                     <div class="row g-4">
                         <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp"><img src="img/portfolio/domino-pizza/1.png" alt="Domino Pizza 1"></div></div>
                         <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.1s"><img src="img/portfolio/domino-pizza/2.png" alt="Domino Pizza 2"></div></div>
@@ -394,6 +362,18 @@
                         <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp"><img src="img/portfolio/pak-wattan/1.png" alt="Pak Wattan 1"></div></div>
                         <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.1s"><img src="img/portfolio/pak-wattan/2.png" alt="Pak Wattan 2"></div></div>
                         <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.2s"><img src="img/portfolio/pak-wattan/3.png" alt="Pak Wattan 3"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.3s"><img src="img/portfolio/pak-wattan/4.jpg" alt="Pak Wattan 4"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.4s"><img src="img/portfolio/pak-wattan/5.jpg" alt="Pak Wattan 5"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.5s"><img src="img/portfolio/pak-wattan/6.jpg" alt="Pak Wattan 6"></div></div>
+                    </div>
+                </div>
+                <div class="portfolio-client mb-5">
+                    <h3 class="portfolio-client-title">Abbottabd Couching & IT Academy</h3>
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp"><img src="img/portfolio/Academy/1.jpg" alt="Academy 1"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.1s"><img src="img/portfolio/Academy/2.jpg" alt="Academy 2"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.2s"><img src="img/portfolio/Academy/3.jpg" alt="Academy 3"></div></div>
+                        <div class="col-sm-6 col-lg-4"><div class="portfolio-item-modern wow fadeInUp" data-wow-delay="0.3s"><img src="img/portfolio/Academy/4.jpg" alt="Academy 4"></div></div>
                     </div>
                 </div>
                 <div class="portfolio-client mb-5">
@@ -567,16 +547,17 @@ window.addEventListener('DOMContentLoaded', animateOnScroll);
 
 
         <!-- footer -->
+         <!-- footer -->
         <footer class="footer-bg footer-bg3 footer-p  p-relative">
             <div class="footer-top  pt-120 pb-90">
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-xl-3 col-lg-3 col-sm-6">
-                             <div class="footer-widget mb-30">
-                                <div class="f-widget-title">
-                                   <h1><img src="img/logo/logo.png" alt="img"></h1>
+                             <div class="footer-widget mb-60">
+                                <div style="margin-bottom: 10%; margin-right: 20%;"  >
+                                   <img src="img/logo/logo-1.jpg" alt="img" >
                                 </div>    
-                                 <div class="f-contact">
+                                 <div class="f-contact" style="margin-left: 10%;" >
                                    <ul>
                                       <p style="color: rgb(104, 100, 100); margin-bottom: 10%; ">Experience quick setup, detailed documentation, and dedicated support designed to streamline and enhance your business interactions effectively. </p>
                                        <li>
